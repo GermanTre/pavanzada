@@ -6,9 +6,9 @@ return [0, 1].
 
 Break Down
 
-¿Esta ordenado? No
-Tiene una sola solución
-Solo son numeros positivos
+¿Esta ordenado? No.
+Tiene una sola solución.
+Solo son numeros positivos.
 
 Solucion 1
 Si el arreglo es de tamaño 2 la solución don la posición 0 y 1 del arreglo.
