@@ -1,0 +1,17 @@
+Descripción
+
+Teniendo dos arreglos hay que encontrar la posición en donde están los números de un arreglo en otro.
+
+Limitantes (Características)
+
+1.	Los dos arreglos tienen la misma cantidad de números. (1 a 100)
+2.	Los números son enteros. (0 a 10^5)
+3.	Se pueden repetir los números.
+
+Solución (n^2) 
+
+(No se repiten)
+Por cana uno de los enteros pasar por todo el arreglo y guardar donde encontró el resultado en un arreglo externo.
+
+(Se repiten)
+Cuando estas pasando por el arreglo no detenerte cuando encuentra el número, sino que tener un arreglo de datos que nos indica cuales son los datos que se repiten y guardarlos hay, mientras el arreglo encuentra dos veces el mismo número lo guarda hay y cada vez que va a buscar en el arreglo ver si no se a repetido en dicho arreglo y si no poner el dato.
