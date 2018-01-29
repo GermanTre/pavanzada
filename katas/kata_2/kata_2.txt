@@ -1,0 +1,22 @@
+Problema
+
+Ver que un string cumpla con los siguientes requisitos:
+
+	Tener de 6 a 20 caracteres.
+
+	Debe tener al menos:
+		Letra minúscula
+		Letra mayúscula.
+		Un número.
+
+	No debe de tener 3 caracteres del mismo seguidos.
+
+Solucion
+
+(Asumo que no se pueden poner espacios en blanco)
+
+Para comprobar que tiene de 6 a 20 caracteres pongo un for y paso por todo el arreglo y lo cuento y si cumple con la característica anterior levanto una bandera.
+
+Para ver si tiene un número, letra minúscula y letra mayúscula dentro del for anterior pongo un if y si es un número, letra mayúscula o letra minúscula levanto su respectiva bandera para indicar que tiene esa característica.
+
+Por ultimo cuando estoy pasando por el arreglo guardo la variable anterior y si la variable no cambia aumento un contador y si el contador alcanza el 3 levanto una bandera para indicar que no cumple con esta característica.
