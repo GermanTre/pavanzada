@@ -1,0 +1,10 @@
+Problema 
+
+El String de que recibimos tiene que cumplir con los siguientes requisitos:
+
+	Ser mayúsculas.
+	No estar separados.
+
+Solución
+
+Primero recibimos el String que recibo del usuario y un arreglo de dos integers que inicia en [0,0], después leo cada carácter y si es U le sumo 1 a la posición 0 del arreglo, si es D le resto uno a la posición 0 del arreglo, si recibo una R le sumo 1 a la posición 1 del arreglo y si recibo un L le resto 1 a la posición 1 del arreglo. Si los resultados finales del arreglo de integers es 0,0 regreso un true y si no un false. 
