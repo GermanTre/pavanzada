@@ -1,0 +1,21 @@
+Problema
+Tenemos que identificar que el imput que nos está dando el usuario es un numero o no.
+
+Las reglas son:
+	Es un número.
+	Puede ser un numero en notación científica.
+	Puede ser un numero flotante.
+	Puede tener comas en las posiciones correctas.
+
+Solución
+La manera que lo solucionaría es utilizando un switch case con un if al inicio porque todas las
+reglas inician con un número.
+
+Primero en el if ponemos el imput y si el valor es un numero pasamos al siguiente paso, si no indicamos
+que no es un número que está en el lenguaje, después dentro de ese if ponemos el switch case, el primer
+caso entraría si es un numero flotante, el siguiente entraría si el string tiene comas y dentro de esa
+parte comprobamos que estén bien posicionados, el ultimo comprobamos que tenga una 'e' en el imput y si
+sí solo comprobamos que su posicionamiento está bien si en algun momento dentro de los switch cases fallan
+la comprobación regresamos que no está dentro del lenguaje y si no fallan regresamos que si es un número que
+está en el lenguaje, por ultimo si no entra dentro de ninguno ponemos un default que nos regresa que el imput
+no es un número que está dentro del lenguaje.
