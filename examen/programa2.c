@@ -1,0 +1,82 @@
+//Lo primero que tenemos que hacer es poder guardar en un char[] todo el string
+//para esto solo utilizamos el comando %[^\n]s en el scanf para guardar todo en un char[]
+
+//Al tener todo el string en el char[] ya podemos empezar a manipularlo como un apuntador
+
+//Para poder voltear el string utilizamos dos formulas reverseString y reverseWords
+
+//reverseString se encarga de de voltear el string entero esto quiere decir que transforma hola soy German a namreG yos aloh
+//Los pasos son.
+//1. A la funcion le pasamos el apuntador entero para poder modificar el char dentro de la funcion y el tamaño del char[] para saber que tan grande es el array
+//2. Utilizamos dos enteros que nos indicaran en donde estamos y una variable temporal para no perder el char que vamos a estar modificando.
+//3. Fuimos cambiando la ultima letra a la primera y la primera letra a la ultima letra hasta que pasaramos por todo el char[].
+//4. Al final ya que pasamos por todo el char[] solo terminamos y esto voltea todo lo que le enviemos.
+
+//reverseWords se encarga de transformar de namreG yos aloh a German soy hola letra por letra esto quiere decir que va de
+//namreG yos aloh -> German yos aloh
+//German yos aloh -> German soy aloh
+//German soy aloh -> German soy hola
+
+//Al ya tener una funcion que nos volteara todo un char[] lo unico que teniamos que hacer es utilizar esa misma funcion pero pasarle el char[] de donde empieza la palabra en adelante y el tamaño de la palabra
+//Necesitamos donde empieza la nueva palabra para no modificar las palabras que ya modificamos y el tamaño de la palabra para llevar el orden y no tener un array out of bound
+//Los pasos a seguir fueron.
+//1. Primero voltear todo el arreglo del char[] utilizando reverseString
+//2. Ya que esta volteado solo tenemos que ver donde haya una separacion " "(que es cuando hay un espacio entre las letras) o "\0" (que lo utilizamos para ver la ultima posicion del char[])
+//3. Si alguno de estas posiciones que vemos es esacio en blanco o final de la oracion solo le pasamos de la posicion donde estamos en adelante del arreglo y el leng de solo la palabra.
+//4. Para saber el length de solo la palabra cada ves que pasamos por una palabra que no es " " o "\0" aumentamos ese contador y cuando nos toca " " o "\0" le pasamos ese contador menos el espacio inicial de la palabra.
+//5. El espacio inicial de la palabra al inicio sera 0 despues cada ves que volteamos una de las palabras sabemos en que posicion estamos y solo cambiamos la nueva posicion inicial de la palabra +1 para evitar el espacio en blanco.
+//6. Al final y ver que tenemos el final de la oracion ("\0") lo unico que nos falta es salirnos de la funcion y imprimir el nuevo char[] modificado.
+
+//Utilice https://stackoverflow.com/questions/15390846/reverse-a-string-word-by-word como referencia.
+
+
+//El unico problema es que el for no funciona si utiliza scanf ("%[^\n]s", palabra); y no se me ocure otra manera de poner todo un string en el char[]
+
+#include <stdio.h>
+#include <string.h>
+
+void reverseWords(char *);
+void reverseString(char* , int);
+
+int main(){
+    int cont;
+    scanf("%d\n",&cont);
+    char *palabra;
+
+    for(int i = 0; i < cont ;i++){
+      scanf ("%[^\n]s", palabra);
+      reverseWords(palabra);
+      printf("%s\n",palabra);
+    }
+
+    return 0;
+}
+
+
+void reverseWords(char * str){
+    int i = 0, j = 0;
+    reverseString(str, strlen(str));
+    while(1){
+        if(*(str+j) == ' ' || *(str+j) == '\0'){
+            reverseString( str+i, j-i );
+            i = j+1;
+        }
+        if(*(str+j) == '\0'){
+            break;
+        }
+        j++;
+    }
+}
+
+void reverseString(char * str, int len){
+    int i, j;
+    char temp;
+    i=j=temp=0;
+
+    j=len-1;
+    for (i=0; i<j; i++, j--){
+        temp=str[i];
+        str[i]=str[j];
+        str[j]=temp;
+    }
+}
