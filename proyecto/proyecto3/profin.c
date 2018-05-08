@@ -21,8 +21,9 @@ int main(){
   }
 
   int resultado;
-  int resultadoFinal;
+  int resultadoFinal = 0;
   int contador = 0;
+  int bandera = 1;
 
   for(int j = 0; j < sizeof(numeros_primos); j++){
     for(int k = 0 ; k < cantidad_array; k++){
@@ -42,5 +43,37 @@ int main(){
       contador = 0;
     }
   }
-  printf("Resultado = %d\n", resultadoFinal);
+
+  for(int l = 128; l < 15000; l++){
+    for(int k = 0 ; k < cantidad_array; k++){
+      if(arr[k]==1){
+        resultado = 0;
+      }else{
+        resultado = arr[k]%l;
+      }
+      if(resultado == 0){
+        contador++;
+      }
+    }
+    if(contador == cantidad_array){
+      for(int i = 0; i < sizeof(numeros_primos); i++){
+        if(numeros_primos[i] % l != 0){
+          bandera = 0;
+          break;
+        }
+      }
+      if(bandera==1){
+        resultadoFinal = l;
+        break;
+      }
+    }else{
+      contador = 0;
+    }
+  }
+
+  if(resultadoFinal==0){
+    printf("No hay un numero primo\n");
+  }else{
+    printf("Resultado = %d\n", resultadoFinal);
+  }
 }
